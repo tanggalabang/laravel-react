@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "02fc70b0-8bae-4dca-88d4-fec075c3b497",
+		"name": "belajar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29455016"
+	},
+	"item": [
+		{
+			"name": "laporan",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}laporan?token={{token}}",
+							"host": [
+								"{{url}}laporan"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}laporan/3?token={{token}}",
+							"host": [
+								"{{url}}laporan"
+							],
+							"path": [
+								"3"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "judul",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "halo",
+									"type": "text"
+								},
+								{
+									"key": "id_peserta",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}laporan?token={{token}}",
+							"host": [
+								"{{url}}laporan"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store failed validation",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}laporan?token={{token}}",
+							"host": [
+								"{{url}}laporan"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}laporan/1?judul=testing&note=cobaaa&id_peserta=3&token={{token}}",
+							"host": [
+								"{{url}}laporan"
+							],
+							"path": [
+								"1"
+							],
+							"query": [
+								{
+									"key": "judul",
+									"value": "testing"
+								},
+								{
+									"key": "note",
+									"value": "cobaaa"
+								},
+								{
+									"key": "id_peserta",
+									"value": "3"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}laporan/1?token={{token}}",
+							"host": [
+								"{{url}}laporan"
+							],
+							"path": [
+								"1"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}signin?username=vcormier&password=H!_ylAj?)eI8A7Y",
+							"host": [
+								"{{url}}signin"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "vcormier"
+								},
+								{
+									"key": "password",
+									"value": "H!_ylAj?)eI8A7Y"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}signout?token={{token}}",
+							"host": [
+								"{{url}}signout"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
