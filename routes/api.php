@@ -1,19 +1,20 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UniversityController;
+use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\MajorController;
+use App\Http\Middleware\TokenValidation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+Route::post('signin', [AuthController::class, 'signin']);
+Route::post('register', [AuthController::class, 'register']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(TokenValidation::class)->group(function () {
+    Route::post('signout', [AuthController::class, 'singout']);
+
 });
+Route::resource('university', UniversityController::class);
+Route::resource('faculty', FacultyController::class);
+Route::resource('major', MajorController::class);
